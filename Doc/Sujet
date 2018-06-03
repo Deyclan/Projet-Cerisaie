@@ -1,0 +1,69 @@
+# Projet de synthèse : gestion d’un camping
+
+
+## Objectifs de ce Projet
+
+Les objectifs de ce projet vous permettront de mettre en œuvre les technologies suivantes :
+- Architecture logicielle : Spring MVC,
+- Interface homme/machine : JSTL, BOOTSRAP,JQUERY, Responsive-Design,..
+- Couche Métier : EJB 3.1 (StateLess, JMS)
+- Couche Persistance : JPA/Hibernate ou JPA Entity
+
+Ce projet est à réaliser en équipe de 4 en utilisant une forge logicielle GitHub  ou …
+
+
+## Présentation du sujet 
+
+### La CERISAIE
+
+"La Cerisaie" est un camping qui peut accueillir des tentes, des caravanes, des camping-cars et propose la location de bungalows. Chaque tente, caravane, etc., occupe un emplacement. Pour la tarification les emplacements sont regroupés par type.
+
+Chaque emplacement possède des caractéristiques propres : sa surface et le nombre maximum de personnes qu'il peut accueillir. De plus, il appartient bien entendu à un type d'emplacement.
+
+Les vacanciers effectuent des séjours à "La Cerisaie". Pour plus de commodité, chaque séjour est repéré par un numéro. Pour chacun d'eux, la direction a besoin de connaître le nom du client (celui du responsable s'il s'agit d'un groupe), les dates de début et de fin de séjour, le nombre de personnes qui ont séjourné et le numéro d'emplacement qui a été utilisé pour ce séjour. Pour le client responsable, la direction enregistre un numéro, le nom, l’adresse, son type de pièce d’identité et son numéro.
+
+
+"La Cerisaie" offre à ses clients la possibilité d'exercer divers sports : le tennis, le vélo tout terrain, la planche à voile, le pédalo et le canoë. Pour chaque sport il y a une unité de temps de location particulière ainsi qu'un prix qui lui est attaché.
+
+Pendant leur séjour les vacanciers louent des équipements pour un certain nombre d'unités, l'heure de tennis, la demi-journée de VTT, la journée de planche à voile, etc. Au moment de leur départ et pour être en mesure d'établir la facture correspondant au séjour effectué, la direction doit connaître ces nombres d'unités. Pour chaque séjour, on enregistre le nombre d'unités accompagné du numéro du séjour, du nom du sport et du jour de la location (jour, mois, an). Même si un vacancier effectue plusieurs locations pour un même sport dans une journée, l'enregistrement du nombre d'unités est globalisé pour la journée.
+
+## Analyse
+Une analyse informatique a permis de mettre en évidence les tables suivantes :
+![](diagrammeClasse.png)
+
+
+## Fonctionnalité de l’application 
+Dans ce tp, on va s’intéresser à l’envoi de messages avec la techn ologie JMS en mode topic/Synchrone.
+
+### Architecture de l’application
+Elle va se composer des parties suivantes :
+
+1.Un module de visualisation des inscriptions aux prestations sportives
+-	planning global
+-	planning par activité
+ 
+2.Un module d’inscription à une prestation sportive 
+-	interface homme/machine de saisie
+-	production d’un message JMS qui indiquera quel sport  (code,  libellé, nombre d’unités), quand (date du jour) et quel est le séjour concerné.
+
+3.Un module serveur qui enregistre les données du message dans la base Cerisaie
+
+## Outils
+Vous utiliserez l’ IDE Intellij avec le serveur WildFly 12 ou 10 et le JDK 1.8.XX
+
+## Equipe 
+
+Le travail en équipe ne veut pas dire comme on le voit trop souvent se mettre à deux ou trois devant un ordinateur, un qui tape, l'autre qui commente et le troisième qui consulte ses textos  !
+On peut parfaitement imaginer deux équipes, une qui se concentrera sur l'IHM et l'autre sur la partie serveur MON.  Le code commun sera mis sur la forge logicielle que vous utiliserez.
+
+## Remise des TP
+
+Les TP devront être remis sous forme du dossier du projet de l'application zippé et renommés  de la forme suivante : nom  des auteurs, exemple :
+
+DUPONT_MARTIN_BRUN_DURAND.zip
+
+L’utilisateur de la BD sera : userepul/epul. 
+
+Si vous modifiez la base de données, fournissez le script de la base de données.
+Le mode de dépôt et sa date limite seront fournis oralement.
+Le fichier décompressé DOIT être immédiatement exploitable tel quel dans l'environnement annoncé sans autre manipulation, faites donc le test avant de le déposer.
