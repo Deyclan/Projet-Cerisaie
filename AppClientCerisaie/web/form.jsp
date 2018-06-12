@@ -7,12 +7,14 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="form-style-5">
-    <form name='inscription' method="post" action="" onsubmit="return test()">
+    <form name='inscription' method="post" action="Controleur?action=envoiInscription" onsubmit="return test()">
         <fieldset>
             <legend><span class="number">1</span>Info Client</legend>
             <input type="text" name="field1" id="nom" placeholder="Votre nom *">
             <input type="text" name="field2" id="prenom" placeholder="Votre prénom *">
-            <textarea name="field3" placeholder="About yourself"></textarea>
+            <input type="text" name="field3" id="adresse" placeholder="Votre adresse *">
+            <input type="text" name="field4" id="cpostal" placeholder="Votre code postal *">
+            <input type="text" name="field5" id="ville" placeholder="Votre ville *">
         </fieldset>
         <fieldset>
             <legend><span class="number">2</span>Info activités</legend>
