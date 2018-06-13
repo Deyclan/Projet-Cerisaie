@@ -26,6 +26,9 @@ public class Controleur extends HttpServlet {
     private static final String AJOUTER_INSCRIPTION = "ajouteInscription";
     private static final String ENVOI_INSCRIPTION = "envoiInscription";
     private static final String RETOUR_ACCUEIL = "Retour";
+    private static final String AFFICHER_ACTIVITES = "activities";
+    private static final String DECONNEXION = "deconnexion";
+    private static final String CONNEXION = "seConnecter";
 
 
     @Resource(lookup = "java:jboss/exported/topic/DemandeInscriptionJmsTopic")
@@ -66,14 +69,17 @@ public class Controleur extends HttpServlet {
         String actionName = request.getParameter(ACTION_TYPE);
 
         // Si on veut afficher l'ensemble des demandes d'inscription
-        if (AJOUTER_INSCRIPTION.equals(actionName)) {
+        if (CONNEXION.equals(actionName) || RETOUR_ACCUEIL.equals(actionName)) {
 
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            request.getRequestDispatcher("/accueil.jsp").forward(request, response);
 
-        } else if (RETOUR_ACCUEIL.equals(actionName)) {
-            this.getServletContext().getRequestDispatcher("/index.jsp").include(request, response);
         }
-
+         else if (AFFICHER_ACTIVITES.equals(actionName)) {
+            this.getServletContext().getRequestDispatcher("/activities.jsp").include(request, response);
+        }
+        else if (AJOUTER_INSCRIPTION.equals(actionName)) {
+            request.getRequestDispatcher("/formInscription.jsp").forward(request, response);
+        }
         else if (ENVOI_INSCRIPTION.equals(actionName))
         {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");

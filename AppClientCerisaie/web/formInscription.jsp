@@ -6,7 +6,18 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<div class="form-style-5">
+<html>
+<head>
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/css/mdb.min.css">
+    <link rel="stylesheet" href="resources/css/myCSS.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>La Cerisaie - inscription</title>
+</head>
+
+<body>
+<header>
+    <jsp:include page="menu.jsp"/><div class="form-style-5">
     <form name='inscription' method="post" action="Controleur?action=envoiInscription" onsubmit="return test()">
         <fieldset>
             <legend><span class="number">1</span>Info Client</legend>
@@ -37,3 +48,7 @@
         <input type="submit" value="S'inscrire" />
     </form>
 </div>
+</header>
+<jsp:include page="footer.jsp"/>
+</body>
+</html>
