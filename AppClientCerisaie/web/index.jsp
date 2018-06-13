@@ -8,9 +8,22 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <link rel="stylesheet" href="/css/myCSS.css">
+    <script src="/js/formTest.js"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>La Cerisaie</title>
   </head>
+
   <body>
-  $END$
+
+  <H2 class="text-center"> Inscription </H2>
+
+  <main class="cards">
+  <jsp:include page="activities.jsp" />
+  </main>
+
+  <aside>
+    <jsp:include page="form.jsp"/>
+  </aside>
   </body>
 </html>
