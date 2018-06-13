@@ -20,13 +20,13 @@ function test()
         ok=false;
     }
     else
-    if(document.identification.nom.value == "")
+    if(document.identification.nom.value === "")
     {
         alert("Veuillez entrer votre nom");
         ok=false;
     }
     else
-    if(document.identification.prenom.value == "")
+    if(document.identification.prenom.value === "")
     {
         alert("Veuillez entrer votre prenom");
         ok=false;

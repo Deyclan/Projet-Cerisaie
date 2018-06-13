@@ -28,7 +28,7 @@ public class Controleur extends HttpServlet {
     private static final String RETOUR_ACCUEIL = "Retour";
 
 
-    @Resource(lookup = "java:jboss/exported/topic/InscriptionJmsTopic")
+    @Resource(lookup = "java:jboss/exported/topic/DemandeInscriptionJmsTopic")
     private Topic topic;
 
     @Resource(mappedName = "java:/ConnectionFactory")
