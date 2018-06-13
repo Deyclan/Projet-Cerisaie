@@ -17,49 +17,107 @@
 
 <body>
 <header>
-    <jsp:include page="menu.jsp"/>    <article class="card">
-        <img src="resources/img/tennis.jpg" alt="Tennis">
-        <div class="text">
-            <h3>Tennis</h3>
-            <p>Collaboratively administrate empowered markets via plug-and-play networks.</p>
+    <jsp:include page="menu.jsp"/>
+        <div class="view" style="background-image: url('resources/img/brown-background.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center; height: 85%">
+            <div class="card-deck cards">
+                <!-- Card -->
+                <div class="card mb-4">
+                    <!--Card image-->
+                    <div class="view overlay">
+                        <img class="card-img-top" src="resources/img/tennis.jpg" alt="Tennis">
+                        <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <!--Card content-->
+                    <div class="card-body">
+                        <!--Title-->
+                        <h4 class="card-title">Tennis</h4>
+                        <!--Text-->
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                        <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+                    </div>
+                </div>
+                <!-- Card -->
+
+                <div class="card mb-4">
+                    <div class="view overlay">
+                        <img class="card-img-top" src="resources/img/vtt.jpg" alt="Vélo tout terrain">
+                        <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Vélo tout terrain</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="view overlay">
+                        <img class="card-img-top" src="resources/img/plancheVoile.jpg" alt="Planche à voile">
+                        <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Planche à voile</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+                    </div>
+                </div>
+
+                <div class="w-100 hidden-sm-down hidden-lg-up"><!-- wrap every 3 on md--></div>
+
+
+                <div class="card mb-4">
+                    <div class="view overlay">
+                        <img class="card-img-top" src="resources/img/pedalo.jpg" alt="Pédalo">
+                        <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Pédalo</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="view overlay">
+                        <img class="card-img-top" src="resources/img/canoe.jpg" alt="Canoë">
+                        <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Descente en canoë</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="view overlay">
+                        <img class="card-img-top" src="resources/img/BaladeEquestre.jpg" alt="Balade équestre">
+                        <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Balade équestre</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <button type="button" class="btn btn-light-blue btn-md">Read more</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Card deck -->
         </div>
-    </article>
-    <article class="card">
-        <img src="resources/img/vtt.jpg" alt="Vélo tout terrain">
-        <div class="text">
-            <h3>Vélo tout terrain</h3>
-            <p>Dramatically engage seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing.</p>
-        </div>
-    </article>
-    <article class="card">
-        <img src="resources/img/plancheVoile.jpg" alt="Planche à voile">
-        <div class="text">
-            <h3>Planche à voile</h3>
-            <p>Completely synergize resource taxing relationships via premier niche markets.</p>
-        </div>
-    </article>
-    <article class="card">
-        <img src="resources/img/pedalo.jpg" alt="Pédalo">
-        <div class="text">
-            <h3>Pédalo</h3>
-            <p>Imagine jumping into that boat, and just letting it sail wherever the wind takes you...</p>
-        </div>
-    </article>
-    <article class="card">
-        <img src="resources/img/canoe.jpg" alt="Canoë">
-        <div class="text">
-            <h3>Descente en canoë</h3>
-            <p>Holisticly predominate extensible testing procedures for reliable supply chains.</p>
-        </div>
-    </article>
-    <article class="card">
-        <img src="resources/img/BaladeEquestre.jpg" alt="Balade équestre">
-        <div class="text">
-            <h3>Balade équestre</h3>
-            <p>Objectively innovate empowered manufactured products whereas parallel platforms.</p>
-        </div>
-    </article>
 </header>
+
 <jsp:include page="footer.jsp"/>
 </body>
 </html>
