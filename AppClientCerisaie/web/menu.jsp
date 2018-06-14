@@ -16,6 +16,9 @@
                 <li class="nav-item col-auto ml-md-auto">
                     <a class="nav-link white-text" href="contact.jsp"> Contactez-nous! </a>
                 </li>
+                <li class="nav-item col-auto ml-md-auto">
+                    <a class="nav-link white-text" href="Controleur?action=deconnexion"> Déconnexion </a>
+                </li>
             </ul>
         </div>
     </div>

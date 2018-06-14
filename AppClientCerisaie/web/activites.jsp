@@ -101,7 +101,7 @@
                 <p class="card-text orange-text">Prix : </p>            </div>
         </div>
 
-        <div class="card mb-4">
+        <div class="card mb-4" style="background-color: transparent; border: none; box-shadow: none;">
         </div>
     </div>
     <!-- Card deck -->
