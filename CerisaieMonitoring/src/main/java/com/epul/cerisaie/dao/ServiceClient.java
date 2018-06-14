@@ -12,7 +12,7 @@ public class ServiceClient extends EntityService {
         try {
             EntityTransaction transaction = startTransaction();
             transaction.begin();
-            clientEntityList = (List<ClientEntity>) entityManager.createQuery("select c from ClientEntity c order by c.numeroClient").getResultList();
+            clientEntityList = (List<ClientEntity>) entityManager.createQuery("select c from ClientEntity c order by c.numCli").getResultList();
             entityManager.close();
         } catch (Exception e) {
             e.printStackTrace();

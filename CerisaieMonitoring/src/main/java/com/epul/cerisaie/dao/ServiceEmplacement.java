@@ -12,7 +12,7 @@ public class ServiceEmplacement extends EntityService {
         try {
             EntityTransaction transaction = startTransaction();
             transaction.begin();
-            emplacementEntityList = (List<EmplacementEntity>) entityManager.createQuery("select e from EmplacementEntity e order by e.numEmplacement").getResultList();
+            emplacementEntityList = (List<EmplacementEntity>) entityManager.createQuery("select e from EmplacementEntity e order by e.numEmpl").getResultList();
             entityManager.close();
         } catch (Exception e) {
             e.printStackTrace();
