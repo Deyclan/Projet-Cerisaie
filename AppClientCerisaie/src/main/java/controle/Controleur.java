@@ -22,12 +22,13 @@ public class Controleur extends HttpServlet {
 
     private static final long serialVersionUID = 10L;
     private static final String ACTION_TYPE = "action";
-    private static final String AJOUTER_INSCRIPTION = "ajouteInscription";
+    private static final String AFFICHER_INSCRIPTION = "afficherInscription";
     private static final String ENVOI_INSCRIPTION = "envoiInscription";
-    private static final String RETOUR_ACCUEIL = "Retour";
     private static final String AFFICHER_ACTIVITES = "activities";
     private static final String DECONNEXION = "deconnexion";
     private static final String CONNEXION = "seConnecter";
+    private int numLocation;
+    private int numSejour;
 
 
     @Resource(lookup = "java:jboss/exported/topic/DemandeInscriptionJmsTopic")
@@ -66,20 +67,19 @@ public class Controleur extends HttpServlet {
     public void TraiteRequete(ServletRequest request, ServletResponse response) throws ServletException, IOException {
         // On récupère l'action
         String actionName = request.getParameter(ACTION_TYPE);
-
         // Si on veut afficher l'ensemble des demandes d'inscription
-        if (CONNEXION.equals(actionName) || RETOUR_ACCUEIL.equals(actionName)) {
-
+        if (CONNEXION.equals(actionName)) {
+            // TODO : vérifier que n°séjour + n°emplacement existent et bons
+            // TODO : set variables numSejour et numLocation
             request.getRequestDispatcher("/accueil.jsp").forward(request, response);
-
         }
-         else if (AFFICHER_ACTIVITES.equals(actionName)) {
+        if (AFFICHER_ACTIVITES.equals(actionName)) {
             this.getServletContext().getRequestDispatcher("/activites.jsp").include(request, response);
         }
-        else if (AJOUTER_INSCRIPTION.equals(actionName)) {
+        if (AFFICHER_INSCRIPTION.equals(actionName)) {
             request.getRequestDispatcher("/inscription.jsp").forward(request, response);
         }
-        else if (ENVOI_INSCRIPTION.equals(actionName))
+        if (ENVOI_INSCRIPTION.equals(actionName))
         {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             response.setContentType("text/html;charset=UTF-8");
@@ -132,7 +132,10 @@ public class Controleur extends HttpServlet {
                     request.setAttribute("MesErreurs", e.getMessage());
                     request.getRequestDispatcher("PostMessage.jsp").forward(request, response);
                 }
-            }
+            //}
+        }
+        if (DECONNEXION.equals(actionName)) {
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
         }
     }
 
