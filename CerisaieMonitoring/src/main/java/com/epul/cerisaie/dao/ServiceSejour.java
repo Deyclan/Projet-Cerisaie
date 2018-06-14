@@ -12,7 +12,7 @@ public class ServiceSejour extends EntityService {
         try {
             EntityTransaction transaction = startTransaction();
             transaction.begin();
-            sejourEntityList = (List<SejourEntity>) entityManager.createQuery("select s from SejourEntity s order by s.numeroSejour").getResultList();
+            sejourEntityList = (List<SejourEntity>) entityManager.createQuery("select s from SejourEntity s order by s.numSej").getResultList();
             entityManager.close();
         } catch (Exception e) {
             e.printStackTrace();

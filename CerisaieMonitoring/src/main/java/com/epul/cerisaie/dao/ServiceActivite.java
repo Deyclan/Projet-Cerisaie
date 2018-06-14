@@ -28,7 +28,7 @@ public class ServiceActivite extends EntityService {
         try {
             EntityTransaction transaction = startTransaction();
             transaction.begin();
-            activiteEntityList = entityManager.createQuery("select a from ActiviteEntity a where codeSport =" + codeSport).getResultList();
+            activiteEntityList = entityManager.createQuery("select a from ActiviteEntity a where a.codeSport =" + codeSport).getResultList();
             if (activiteEntityList.size() > 0) {
                 activite = activiteEntityList.get(0);
             }
@@ -45,7 +45,7 @@ public class ServiceActivite extends EntityService {
         try {
             EntityTransaction transaction = startTransaction();
             transaction.begin();
-            activiteEntityList = entityManager.createQuery("select a from ActiviteEntity a where dateJour =" + date).getResultList();
+            activiteEntityList = entityManager.createQuery("select a from ActiviteEntity a where a.dateJour =" + date).getResultList();
             if (activiteEntityList.size() > 0) {
                 activite = activiteEntityList.get(0);
             }
@@ -62,7 +62,7 @@ public class ServiceActivite extends EntityService {
         try {
             EntityTransaction transaction = startTransaction();
             transaction.begin();
-            activiteEntityList = entityManager.createQuery("select a from ActiviteEntity a where numeroSejour =" + numSejour).getResultList();
+            activiteEntityList = entityManager.createQuery("select a from ActiviteEntity a where a.numSej =" + numSejour).getResultList();
             if (activiteEntityList.size() > 0) {
                 activite = activiteEntityList.get(0);
             }
