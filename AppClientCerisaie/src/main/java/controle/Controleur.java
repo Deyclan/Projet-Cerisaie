@@ -14,8 +14,9 @@ import java.text.SimpleDateFormat;
 
 
 import javax.annotation.Resource;
+
 import meserreurs.MonException;
-import metier.InscriptionActivite;
+import metier.Activite;
 
 @WebServlet("/Controleur")
 public class Controleur extends HttpServlet {
@@ -27,12 +28,13 @@ public class Controleur extends HttpServlet {
     private static final String AFFICHER_ACTIVITES = "activities";
     private static final String DECONNEXION = "deconnexion";
     private static final String CONNEXION = "seConnecter";
-    private int numLocation;
-    private int numSejour;
+    private static int numLocation;
+    private static int numSejour;
 
 
     @Resource(lookup = "java:jboss/exported/topic/DemandeInscriptionJmsTopic")
     private Topic topic;
+
 
     @Resource(mappedName = "java:/ConnectionFactory")
     private TopicConnectionFactory cf;
@@ -69,8 +71,12 @@ public class Controleur extends HttpServlet {
         String actionName = request.getParameter(ACTION_TYPE);
         // Si on veut afficher l'ensemble des demandes d'inscription
         if (CONNEXION.equals(actionName)) {
-            // TODO : vérifier que n°séjour + n°emplacement existent et bons
-            // TODO : set variables numSejour et numLocation
+            try {
+                numLocation = Integer.parseInt(request.getParameter("username"));
+                numSejour = Integer.parseInt(request.getParameter("password"));
+            }catch (Exception e){
+                request.getRequestDispatcher("/Erreur.jsp").forward(request, response);
+            }
             request.getRequestDispatcher("/accueil.jsp").forward(request, response);
         }
         if (AFFICHER_ACTIVITES.equals(actionName)) {
@@ -79,63 +85,62 @@ public class Controleur extends HttpServlet {
         if (AFFICHER_INSCRIPTION.equals(actionName)) {
             request.getRequestDispatcher("/inscription.jsp").forward(request, response);
         }
-        if (ENVOI_INSCRIPTION.equals(actionName))
-        {
+        if (ENVOI_INSCRIPTION.equals(actionName)) {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             response.setContentType("text/html;charset=UTF-8");
             // On récupère les informations sisies
             // TODO : Modifier les getter param
             int codeSport = -1;
             Date dateJour = null;
-            int numSej = -1;
-            short nbLoc = -1;
             int nbFoisReserve = -1;
 
-            codeSport = Integer.parseInt(request.getParameter("activity"));
+            String cdeSport = request.getParameter("code");
             String dateJourString = request.getParameter("jourActivite");
-            numSej = request.getParameter("");
-            nbLoc = request.getParameter("");
-            nbFoisReserve = Integer.parseInt(request.getParameter("nbActivite"));
+            String nbResa = request.getParameter("nbActivite");
 
-            if (codeSport != -1 && dateJour != null && numSej != -1 && nbLoc != -1) {
+            codeSport = Integer.parseInt(cdeSport);
+            nbFoisReserve = Integer.parseInt(nbResa);
+
+            if (codeSport != -1 && dateJourString != null) {
 
                 try {
                     // On récupère la valeur des autres champs saisis par
                     // l'utilisateur
                     // on transfome la date
                     // au format Mysql java.sql.Date
-                    java.util.Date initDate = new SimpleDateFormat("dd/MM/yyyy").parse(dateJourString);
-                    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-                    String parsedDate = formatter.format(initDate);
-                    initDate= formatter.parse(parsedDate);
+                    //java.util.Date initDate = new SimpleDateFormat("dd/MM/yyyy").parse(dateJourString);
+                    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                    //String parsedDate = format.format(dateJourString);
+                    java.util.Date initDate = format.parse(dateJourString);
                     dateJour = new Date(initDate.getTime());
 
                     // On crée une demande d'inscription avec ces valeurs
-                    InscriptionActivite inscription = new InscriptionActivite();
+                    Activite inscription = new Activite();
                     inscription.setCodeSport(codeSport);
                     inscription.setDateJour(dateJour);
-                    inscription.setNbLoc(nbLoc);
-                    inscription.setNumSej(numSej);
+                    inscription.setNbLoc(numLocation);
+                    inscription.setNumSej(numSejour);
 
                     // On envoie cette demande d'inscription dans le topic
                     boolean ok = envoi(inscription);
                     if (ok)
                         // On retourne à la page d'accueil
                         this.getServletContext().getRequestDispatcher("/accueil.jsp").include(request, response);
-                }catch (MonException m) {
+                } catch (MonException m) {
                     // On passe l'erreur à  la page JSP
                     request.setAttribute("MesErreurs", m.getMessage());
                     request.getRequestDispatcher("PostMessage.jsp").forward(request, response);
-                }catch (Exception e) {
+                } catch (Exception e) {
                     // On passe l'erreur à la page JSP
                     System.out.println("Erreur client  :" + e.getMessage());
                     request.setAttribute("MesErreurs", e.getMessage());
                     request.getRequestDispatcher("PostMessage.jsp").forward(request, response);
                 }
-            //}
-        }
-        if (DECONNEXION.equals(actionName)) {
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
+                //}
+            }
+            if (DECONNEXION.equals(actionName)) {
+                request.getRequestDispatcher("/index.jsp").forward(request, response);
+            }
         }
     }
 
@@ -145,7 +150,7 @@ public class Controleur extends HttpServlet {
      * @return
      * @throws Exception
      */
-    boolean envoi(InscriptionActivite uneDemande) throws Exception {
+    boolean envoi(Activite uneDemande) throws Exception {
 
         boolean ok = true;
         TopicConnection connection;

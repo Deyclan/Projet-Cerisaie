@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Nejko
@@ -23,19 +24,23 @@
 
 <div class="form-style-5 pt-5 pb-5" style="background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);">
     <form name='inscription' method="post" action="Controleur?action=envoiInscription" onsubmit="return test()">
-            <legend><span class="number orange">1</span>Ajoutez une activité</legend>
-            <label for="activity">Choix :</label>
-            <select id="activity" class="form-control browser-default">
-                <c:forEach items="${activites}" var="act">
-                    <option class="warning" value="${act.idActivite}">${act.nomActivite}</option>
-                </c:forEach>
-            </select>
-            <legend><span class="number orange">2</span>Précisez quand</legend>
-        <label for="nbActivite">Choisissez le nombre de temps:</label>
-        <input type="number" step="1" id="nbActivite" name="jourActivite" required min="1">
+        <legend><span class="number orange">1</span>Ajoutez une activité</legend>
+        <label for="codeSport">Choix :</label>
+        <select id="codeSport" name="code" class="form-control browser-default">
+            <option value="1">Tennis</option>
+            <option value="2">VTT</option>
+            <option value="3">Planche à Voile</option>
+            <option value="4">Pédalo</option>
+            <option value="5">Canoé</option>
+        </select>
 
-            <label for="jourActivite">Choisissez le(s) jour(s):</label>
-            <input type="date" id="jourActivite" name="jourActivite" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+        <legend><span class="number orange">2</span>Précisez quand</legend>
+        <label for="nbActivite">Choisissez le nombre de temps:</label>
+        <input type="number" step="1" id="nbActivite" name="nbActivite" required min="1">
+
+        <label for="jourActivite">Choisissez le(s) jour(s):</label>
+        <input type="date" id="jourActivite" name="jourActivite" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+
         <input type="submit" class="btn-warning" value="S'inscrire" />
     </form>
 </div>

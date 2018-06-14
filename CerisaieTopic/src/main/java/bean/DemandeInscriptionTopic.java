@@ -24,8 +24,8 @@ import java.util.Date;
  */
 // On se connecte à la file d'attente InscriptionTopic
 @MessageDriven(activationConfig = {
-        @ActivationConfigProperty(propertyName = "destination", propertyValue = "java:jboss/exported/topic/DemandeInscriptionTopic"),
-        @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Topic")}, mappedName = "DemandeInscriptionTopic")
+        @ActivationConfigProperty(propertyName = "destination", propertyValue = "java:jboss/exported/topic/DemandeInscriptionJmsTopic"),
+        @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Topic")}, mappedName = "DemandeInscriptionJmsTopic")
 public class DemandeInscriptionTopic implements MessageListener {
 
     @Resource
@@ -59,7 +59,7 @@ public class DemandeInscriptionTopic implements MessageListener {
                     // on tansfère les données reçues dans l'objet Entity
                     activiteEntity.setCodeSport(activite.getCodeSport());
                     activiteEntity.setDateJour(activite.getDateJour());
-                    activiteEntity.setNbLoc(activite.getNbLoc());
+                    activiteEntity.setNbLoc((short)activite.getNbLoc());
                     activiteEntity.setNumSej(activite.getNumSej());
                     activiteEntity.setSejourByNumSej(sejourService.getSejourByNumSejour(activite.getNumSej()));
                     activiteEntity.setSportByCodeSport(sportService.getSportByCodeSport(activite.getCodeSport()));

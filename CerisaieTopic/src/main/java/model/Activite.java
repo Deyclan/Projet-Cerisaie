@@ -8,7 +8,7 @@ public class Activite implements Serializable {
     private int codeSport;
     private Date dateJour;
     private int numSej;
-    private short nbLoc;
+    private int nbLoc;
 
     public int getCodeSport() {
         return codeSport;
@@ -34,7 +34,7 @@ public class Activite implements Serializable {
         this.numSej = numSej;
     }
 
-    public short getNbLoc() {
+    public int getNbLoc() {
         return nbLoc;
     }
 

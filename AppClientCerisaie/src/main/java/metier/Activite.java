@@ -4,7 +4,7 @@ package metier;
 import java.io.Serializable;
 import java.sql.Date;
 
-public class InscriptionActivite implements Serializable {
+public class Activite implements Serializable {
     private int codeSport;
     private Date dateJour;
     private int numSej;

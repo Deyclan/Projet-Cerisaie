@@ -8,10 +8,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
             <ul class="navbar-nav row justify-content-around col-12">
                 <li class="nav-item col-auto ml-md-auto">
-                    <a class="nav-link" href="activites.jsp"> Liste des activités </a>
+                    <a class="nav-link" href="Controleur?action=activities"> Liste des activités </a>
                 </li>
                 <li class="nav-item col-auto ml-md-auto">
-                    <a class="nav-link" href="inscription.jsp"> S'inscrire à une activité </a>
+                    <a class="nav-link" href="Controleur?action=afficherInscription"> S'inscrire à une activité </a>
                 </li>
                 <li class="nav-item col-auto ml-md-auto">
                     <a class="nav-link white-text" href="contact.jsp"> Contactez-nous! </a>

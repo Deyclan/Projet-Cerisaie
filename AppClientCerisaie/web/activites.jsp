@@ -37,7 +37,7 @@
                 <!--Text-->
                 <p class="card-text">Des terrains de tennis à votre disposition.</p>
                 <p class="card-text amber-text">Durée min. : 1h </p>
-                <p class="card-text orange-text">Prix : </p>                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                <p class="card-text orange-text">Prix : 9€</p>                <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
             </div>
         </div>
         <!-- Card -->
@@ -53,7 +53,7 @@
                 <h4 class="card-title">Vélo tout terrain</h4>
                 <p class="card-text">Partez à l'aventure, seul ou en famille.</p>
                 <p class="card-text amber-text">Durée min. : demi-journée </p>
-                <p class="card-text orange-text">Prix : </p>            </div>
+                <p class="card-text orange-text">Prix : 15€</p>            </div>
         </div>
 
         <div class="card mb-4">
@@ -67,7 +67,7 @@
                 <h4 class="card-title">Planche à voile</h4>
                 <p class="card-text">Montrez vos compétences de voile!</p>
                 <p class="card-text amber-text">Durée min. : journée</p>
-                <p class="card-text orange-text">Prix : </p>            </div>
+                <p class="card-text orange-text">Prix : 22€</p>            </div>
         </div>
 
         <div class="w-100 hidden-sm-down hidden-lg-up"><!-- wrap every 3 on md--></div>
@@ -84,7 +84,7 @@
                 <h4 class="card-title">Pédalo</h4>
                 <p class="card-text">Détendez-vous sur le lac.</p>
                 <p class="card-text amber-text">Durée min. : 1h</p>
-                <p class="card-text orange-text">Prix : </p>            </div>
+                <p class="card-text orange-text">Prix : 8€</p>            </div>
         </div>
 
         <div class="card mb-4">
@@ -98,7 +98,7 @@
                 <h4 class="card-title">Descente en canoë</h4>
                 <p class="card-text">Descendez le fleuve seul ou en famille.</p>
                 <p class="card-text amber-text">Durée min. : journée </p>
-                <p class="card-text orange-text">Prix : </p>            </div>
+                <p class="card-text orange-text">Prix : 10€</p>            </div>
         </div>
 
         <div class="card mb-4" style="background-color: transparent; border: none; box-shadow: none;">
