@@ -12,7 +12,7 @@
       <link rel="stylesheet" href="resources/css/mdb.min.css">
       <link rel="stylesheet" href="resources/css/myCSS.css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>La Cerisaie</title>
+    <title>La Cerisaie - Accueil</title>
   </head>
 
   <body>

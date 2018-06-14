@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="resources/css/mdb.min.css">
     <link rel="stylesheet" href="resources/css/myCSS.css">
-    <title>Connexion</title>
+    <title>La Cerisaie - Connexion</title>
 </head>
 <body>
 
@@ -19,7 +19,7 @@
                     <div class="col-md-6 col-xl-5 mb-4">
                         <!--Form-->
                         <form class="card wow fadeInDown" data-wow-delay="0.3s" style="visibility: visible; animation-name: fadeInDown; animation-delay: 0.3s; background-color:rgba(0, 0, 0, 0.2);"
-                              name='connexion' method="post" action="seConnecter">
+                              name='connexion' method="post" action="Controleur?action=seConnecter">
                             <div class="card-body">
                                 <!--Header-->
                                 <div class="text-center">
@@ -27,15 +27,15 @@
                                 </div>
                                 <!--Body-->
                                 <div class="md-form">
-                                    <label for="user" class="active white-text"> Identifiant (NOM) </label>
-                                    <INPUT type="text" class="form-control amber-text" name="username" value="" id="user">
+                                    <label for="user" class="active white-text"> Identifiant (N°LOCATION) </label>
+                                    <INPUT type="text" class="form-control orange-text" name="username" value="" id="user" required>
                                 </div>
                                 <div class="md-form">
                                     <label for="pwd" class="active white-text"> Mot de passe (N°SEJOUR) </label>
-                                    <INPUT type="password" class="form-control amber-text" name="password" id="pwd">
+                                    <INPUT type="password" class="form-control orange-text" name="password" id="pwd" required>
                                 </div>
                                 <div class="text-center mt-4">
-                                    <button type="submit" name="bt" class="btn btn-outline-amber text-center">Se connecter</button>
+                                    <button type="submit" name="bt" class="btn btn-outline-orange text-center">Se connecter</button>
                                     <button type="reset" name="bt" class="btn btn-outline-blue-grey text-center">RAZ</button>
                                 </div>
                             </div>
