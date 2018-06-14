@@ -27,7 +27,7 @@
                                 </div>
                                 <!--Body-->
                                 <div class="md-form">
-                                    <label for="user" class="active white-text"> Identifiant (NOM) </label>
+                                    <label for="user" class="active white-text"> Identifiant (N°LOCATION) </label>
                                     <INPUT type="text" class="form-control orange-text" name="username" value="" id="user" required>
                                 </div>
                                 <div class="md-form">

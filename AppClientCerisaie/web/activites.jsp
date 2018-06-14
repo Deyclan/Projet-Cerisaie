@@ -102,18 +102,6 @@
         </div>
 
         <div class="card mb-4">
-            <div class="view overlay">
-                <img class="card-img-top" src="resources/img/BaladeEquestre.jpg" alt="Balade équestre">
-                <a href="#!">
-                    <div class="mask rgba-white-slight"></div>
-                </a>
-            </div>
-            <div class="card-body">
-                <h4 class="card-title">Balade équestre</h4>
-                <p class="card-text">Visitez les lieux à dos de poney ou cheval.</p>
-                <p class="card-text amber-text">Durée min. : 2h</p>
-                <p class="card-text orange-text">Prix : </p>
-            </div>
         </div>
     </div>
     <!-- Card deck -->
