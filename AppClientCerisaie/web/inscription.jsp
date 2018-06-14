@@ -12,23 +12,19 @@
     <link rel="stylesheet" href="resources/css/mdb.min.css">
     <link rel="stylesheet" href="resources/css/myCSS.css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>La Cerisaie - inscription</title>
+    <title>La Cerisaie - Inscription</title>
 </head>
 
 <body>
-<header>
-    <jsp:include page="menu.jsp"/><div class="form-style-5">
+
+<div class="py-5">
+    <jsp:include page="menu.jsp"/>
+</div>
+
+<div class="form-style-5 pt-5 pb-5" style="background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);">
     <form name='inscription' method="post" action="Controleur?action=envoiInscription" onsubmit="return test()">
         <fieldset>
-            <legend><span class="number">1</span>Info Client</legend>
-            <input type="text" name="field1" id="nom" placeholder="Votre nom *">
-            <input type="text" name="field2" id="prenom" placeholder="Votre prénom *">
-            <input type="text" name="field3" id="adresse" placeholder="Votre adresse *">
-            <input type="text" name="field4" id="cpostal" placeholder="Votre code postal *">
-            <input type="text" name="field5" id="ville" placeholder="Votre ville *">
-        </fieldset>
-        <fieldset>
-            <legend><span class="number">2</span>Info activités</legend>
+            <legend><span class="number orange">1</span>Info activités</legend>
             <label for="activity">Choix :</label>
             <select id="activity" name="field4">
                 <optgroup label="Sur l'eau">
@@ -45,10 +41,9 @@
             <label for="jourActivite">Choisissez le(s) jour(s):</label>
             <input type="date" id="jourActivite" name="jourActivite" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
         </fieldset>
-        <input type="submit" value="S'inscrire" />
+        <input type="submit" class="btn-warning" value="S'inscrire" />
     </form>
 </div>
-</header>
 <jsp:include page="footer.jsp"/>
 </body>
 </html>

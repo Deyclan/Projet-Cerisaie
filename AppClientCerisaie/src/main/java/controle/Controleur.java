@@ -75,10 +75,10 @@ public class Controleur extends HttpServlet {
 
         }
          else if (AFFICHER_ACTIVITES.equals(actionName)) {
-            this.getServletContext().getRequestDispatcher("/activities.jsp").include(request, response);
+            this.getServletContext().getRequestDispatcher("/activites.jsp").include(request, response);
         }
         else if (AJOUTER_INSCRIPTION.equals(actionName)) {
-            request.getRequestDispatcher("/formInscription.jsp").forward(request, response);
+            request.getRequestDispatcher("/inscription.jsp").forward(request, response);
         }
         else if (ENVOI_INSCRIPTION.equals(actionName))
         {
@@ -118,10 +118,7 @@ public class Controleur extends HttpServlet {
                     boolean ok = envoi(unedemande);
                     if (ok)
                         // On retourne à la page d'accueil
-                        this.getServletContext().getRequestDispatcher("/index.jsp").include(request, response);
-                    else {
-                        this.getServletContext().getRequestDispatcher("/Erreur.jsp").include(request, response);
-                    }
+                        this.getServletContext().getRequestDispatcher("/accueil.jsp").include(request, response);
                 }catch (MonException m) {
                     // On passe l'erreur à  la page JSP
                     request.setAttribute("MesErreurs", m.getMessage());
