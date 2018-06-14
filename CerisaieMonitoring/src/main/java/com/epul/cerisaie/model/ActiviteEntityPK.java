@@ -10,7 +10,7 @@ public class ActiviteEntityPK implements Serializable {
     private Date dateJour;
     private int numSej;
 
-    @Column(name = "CodeSport", nullable = false)
+    @Column(name = "CodeSport", nullable = false, insertable = false, updatable = false)
     @Id
     public int getCodeSport() {
         return codeSport;
@@ -20,7 +20,7 @@ public class ActiviteEntityPK implements Serializable {
         this.codeSport = codeSport;
     }
 
-    @Column(name = "DateJour", nullable = false)
+    @Column(name = "DateJour", nullable = false, insertable = false, updatable = false)
     @Id
     public Date getDateJour() {
         return dateJour;
@@ -30,7 +30,7 @@ public class ActiviteEntityPK implements Serializable {
         this.dateJour = dateJour;
     }
 
-    @Column(name = "NumSej", nullable = false)
+    @Column(name = "NumSej", nullable = false, insertable = false, updatable = false)
     @Id
     public int getNumSej() {
         return numSej;

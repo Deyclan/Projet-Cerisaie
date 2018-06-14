@@ -78,7 +78,7 @@ public class EmplacementEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "CodeTypeE", referencedColumnName = "CodeTypeE", nullable = false)
+    @JoinColumn(name = "CodeTypeE", referencedColumnName = "CodeTypeE", nullable = false, insertable = false, updatable = false)
     public TypeEmplacementEntity getTypeEmplacementByCodeTypeE() {
         return typeEmplacementByCodeTypeE;
     }

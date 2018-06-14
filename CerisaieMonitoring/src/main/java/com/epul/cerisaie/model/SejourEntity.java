@@ -115,7 +115,7 @@ public class SejourEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "NumCli", referencedColumnName = "NumCli", nullable = false)
+    @JoinColumn(name = "NumCli", referencedColumnName = "NumCli", nullable = false, insertable = false, updatable = false)
     public ClientEntity getClientByNumCli() {
         return clientByNumCli;
     }
@@ -125,7 +125,7 @@ public class SejourEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "NumEmpl", referencedColumnName = "NumEmpl", nullable = false)
+    @JoinColumn(name = "NumEmpl", referencedColumnName = "NumEmpl", nullable = false, insertable = false, updatable = false)
     public EmplacementEntity getEmplacementByNumEmpl() {
         return emplacementByNumEmpl;
     }
