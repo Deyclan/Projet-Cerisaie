@@ -27,6 +27,7 @@
         <legend><span class="number orange">1</span>Ajoutez une activité</legend>
         <label for="codeSport">Choix :</label>
         <select id="codeSport" name="code" class="form-control browser-default">
+            <option selected disabled hidden>Sélectionnez activité</option>
             <option value="1">Tennis</option>
             <option value="2">VTT</option>
             <option value="3">Planche à Voile</option>
