@@ -1,6 +1,5 @@
 package services;
 
-import model.SejourEntity;
 import model.SportEntity;
 
 import javax.persistence.EntityManager;

@@ -1,11 +1,9 @@
 package services;
 
-import model.ActiviteEntity;
 import model.SejourEntity;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
 
 public class SejourService {

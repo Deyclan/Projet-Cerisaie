@@ -1,7 +1,6 @@
 package model;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
 @Table(name = "sport", schema = "cerisaie", catalog = "")
@@ -10,7 +9,6 @@ public class SportEntity {
     private String libelleSport;
     private String uniteTpsSport;
     private int tarifUnite;
-    private Collection<ActiviteEntity> activitesByCodeSport;
 
     @Id
     @Column(name = "CodeSport", nullable = false)
@@ -75,14 +73,5 @@ public class SportEntity {
         result = 31 * result + (uniteTpsSport != null ? uniteTpsSport.hashCode() : 0);
         result = 31 * result + tarifUnite;
         return result;
-    }
-
-    @OneToMany(mappedBy = "sportByCodeSport")
-    public Collection<ActiviteEntity> getActivitesByCodeSport() {
-        return activitesByCodeSport;
-    }
-
-    public void setActivitesByCodeSport(Collection<ActiviteEntity> activitesByCodeSport) {
-        this.activitesByCodeSport = activitesByCodeSport;
     }
 }

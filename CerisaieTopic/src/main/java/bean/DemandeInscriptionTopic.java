@@ -61,8 +61,6 @@ public class DemandeInscriptionTopic implements MessageListener {
                     activiteEntity.setDateJour(activite.getDateJour());
                     activiteEntity.setNbLoc((short)activite.getNbLoc());
                     activiteEntity.setNumSej(activite.getNumSej());
-                    activiteEntity.setSejourByNumSej(sejourService.getSejourByNumSejour(activite.getNumSej()));
-                    activiteEntity.setSportByCodeSport(sportService.getSportByCodeSport(activite.getCodeSport()));
 
                     ReserverActivieService reserverActivieService = new ReserverActivieService();
                     reserverActivieService.insertionInscription(activiteEntity);

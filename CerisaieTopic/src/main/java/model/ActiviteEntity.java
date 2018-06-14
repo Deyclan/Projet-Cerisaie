@@ -11,8 +11,6 @@ public class ActiviteEntity {
     private Date dateJour;
     private int numSej;
     private short nbLoc;
-    private SportEntity sportByCodeSport;
-    private SejourEntity sejourByNumSej;
 
     @Id
     @Column(name = "CodeSport", nullable = false)
@@ -76,25 +74,5 @@ public class ActiviteEntity {
         result = 31 * result + numSej;
         result = 31 * result + (int) nbLoc;
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "CodeSport", referencedColumnName = "CodeSport", nullable = false)
-    public SportEntity getSportByCodeSport() {
-        return sportByCodeSport;
-    }
-
-    public void setSportByCodeSport(SportEntity sportByCodeSport) {
-        this.sportByCodeSport = sportByCodeSport;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "NumSej", referencedColumnName = "NumSej", nullable = false)
-    public SejourEntity getSejourByNumSej() {
-        return sejourByNumSej;
-    }
-
-    public void setSejourByNumSej(SejourEntity sejourByNumSej) {
-        this.sejourByNumSej = sejourByNumSej;
     }
 }
