@@ -11,7 +11,7 @@
                     <a class="nav-link white-text" href="planning"> Planning Activités </a>
                 </li>
 
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown col-auto ml-md-auto">
                     <a class="nav-link dropdown-toggle white-text" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false">
                         Informations clients
@@ -22,7 +22,7 @@
                     </div>
                 </li>
 
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown col-auto ml-md-auto">
                     <a class="nav-link dropdown-toggle white-text" href="http://example.com" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false">
                         Informations camping
