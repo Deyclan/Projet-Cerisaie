@@ -1,12 +1,11 @@
-package com.epul.dao;
+package com.epul.cerisaie.dao;
 
-import com.epul.metier.EmplacementEntity;
-import com.epul.metier.SportEntity;
+import com.epul.cerisaie.model.SportEntity;
 
 import javax.persistence.EntityTransaction;
 import java.util.List;
 
-public class ServiceSport extends EntityService{
+public class ServiceSport extends EntityService {
 
     public List<SportEntity> getListSport() {
         List<SportEntity> sportEntityList = null;

@@ -1,8 +1,6 @@
-package com.epul.dao;
+package com.epul.cerisaie.dao;
 
-import com.epul.metier.ActiviteEntity;
-import com.epul.metier.ClientEntity;
-import com.mysql.fabric.xmlrpc.Client;
+import com.epul.cerisaie.model.ClientEntity;
 
 import javax.persistence.EntityTransaction;
 import java.util.List;

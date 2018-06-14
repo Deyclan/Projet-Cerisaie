@@ -1,12 +1,12 @@
-package com.epul.dao;
+package com.epul.cerisaie.dao;
 
-import com.epul.metier.ActiviteEntity;
+import com.epul.cerisaie.model.ActiviteEntity;
 
 import javax.persistence.EntityTransaction;
 import java.util.Date;
 import java.util.List;
 
-public class ServiceActivite extends EntityService{
+public class ServiceActivite extends EntityService {
 
     public List<ActiviteEntity> getListActivite(){
         List<ActiviteEntity> activiteEntityList = null;

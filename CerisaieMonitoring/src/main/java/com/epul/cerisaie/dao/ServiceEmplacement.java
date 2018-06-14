@@ -1,12 +1,11 @@
-package com.epul.dao;
+package com.epul.cerisaie.dao;
 
-import com.epul.metier.ClientEntity;
-import com.epul.metier.EmplacementEntity;
+import com.epul.cerisaie.model.EmplacementEntity;
 
 import javax.persistence.EntityTransaction;
 import java.util.List;
 
-public class ServiceEmplacement extends EntityService{
+public class ServiceEmplacement extends EntityService {
 
     public List<EmplacementEntity> getListEmplacement() {
         List<EmplacementEntity> emplacementEntityList = null;

@@ -4,6 +4,6 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+    <h1>Yo</h1>
   </body>
 </html>
