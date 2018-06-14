@@ -9,14 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import java.sql.Date;
 import java.text.SimpleDateFormat;
 
 
-import java.sql.Date;
-
 import javax.annotation.Resource;
 import meserreurs.MonException;
-import metier.Inscription;
+import metier.InscriptionActivite;
 
 @WebServlet("/Controleur")
 public class Controleur extends HttpServlet {
@@ -85,37 +84,41 @@ public class Controleur extends HttpServlet {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             response.setContentType("text/html;charset=UTF-8");
             // On récupère les informations sisies
-            String nom = request.getParameter("nom");
-            String prenom = request.getParameter("prenom");
+            // TODO : Modifier les getter param
+            int codeSport = -1;
+            Date dateJour = null;
+            int numSej = -1;
+            short nbLoc = -1;
+            int nbFoisReserve = -1;
 
-            if ((nom != null) && (prenom != null)) {
+            codeSport = Integer.parseInt(request.getParameter("activity"));
+            String dateJourString = request.getParameter("jourActivite");
+            numSej = request.getParameter("");
+            nbLoc = request.getParameter("");
+            nbFoisReserve = Integer.parseInt(request.getParameter("nbActivite"));
+
+            if (codeSport != -1 && dateJour != null && numSej != -1 && nbLoc != -1) {
+
                 try {
                     // On récupère la valeur des autres champs saisis par
                     // l'utilisateur
                     // on transfome la date
                     // au format Mysql java.sql.Date
-/*                    String datenaissance = request.getParameter("datenaissance");
-                    java.util.Date initDate = new SimpleDateFormat("dd/MM/yyyy").parse(datenaissance);
+                    java.util.Date initDate = new SimpleDateFormat("dd/MM/yyyy").parse(dateJourString);
                     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
                     String parsedDate = formatter.format(initDate);
                     initDate= formatter.parse(parsedDate);
-                    Date uneDate = new Date(initDate.getTime());*/
-
-                    String adresse = request.getParameter("adresse");
-                    String cpostal = request.getParameter("cpostal");
-                    String ville = request.getParameter("ville");
+                    dateJour = new Date(initDate.getTime());
 
                     // On crée une demande d'inscription avec ces valeurs
-                    Inscription unedemande = new Inscription();
-                    unedemande.setNomcandidat(nom);
-                    unedemande.setPrenomcandidat(prenom);
-                    //unedemande.setDatenaissance(uneDate);
-                    unedemande.setAdresse(adresse);
-                    unedemande.setCpostal(cpostal);
-                    unedemande.setVille(ville);
+                    InscriptionActivite inscription = new InscriptionActivite();
+                    inscription.setCodeSport(codeSport);
+                    inscription.setDateJour(dateJour);
+                    inscription.setNbLoc(nbLoc);
+                    inscription.setNumSej(numSej);
 
                     // On envoie cette demande d'inscription dans le topic
-                    boolean ok = envoi(unedemande);
+                    boolean ok = envoi(inscription);
                     if (ok)
                         // On retourne à la page d'accueil
                         this.getServletContext().getRequestDispatcher("/accueil.jsp").include(request, response);
@@ -139,7 +142,7 @@ public class Controleur extends HttpServlet {
      * @return
      * @throws Exception
      */
-    boolean envoi(Inscription uneDemande) throws Exception {
+    boolean envoi(InscriptionActivite uneDemande) throws Exception {
 
         boolean ok = true;
         TopicConnection connection;

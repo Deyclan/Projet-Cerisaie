@@ -1,14 +1,14 @@
-package model;
+package metier;
+
 
 import java.io.Serializable;
 import java.sql.Date;
 
-public class Activite implements Serializable {
-
+public class InscriptionActivite implements Serializable {
     private int codeSport;
     private Date dateJour;
     private int numSej;
-    private short nbLoc;
+    private int nbLoc;
 
     public int getCodeSport() {
         return codeSport;
@@ -34,12 +34,12 @@ public class Activite implements Serializable {
         this.numSej = numSej;
     }
 
-    public short getNbLoc() {
+    public int getNbLoc() {
         return nbLoc;
     }
 
-    public void setNbLoc(short nbLoc) {
+    public void setNbLoc(int nbLoc) {
         this.nbLoc = nbLoc;
     }
-
 }
+
