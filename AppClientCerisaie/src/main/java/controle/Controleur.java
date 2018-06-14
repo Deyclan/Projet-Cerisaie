@@ -12,8 +12,6 @@ import javax.servlet.ServletResponse;
 import java.text.SimpleDateFormat;
 
 
-import java.sql.Date;
-
 import javax.annotation.Resource;
 import meserreurs.MonException;
 import metier.Inscription;
@@ -23,12 +21,13 @@ public class Controleur extends HttpServlet {
 
     private static final long serialVersionUID = 10L;
     private static final String ACTION_TYPE = "action";
-    private static final String AJOUTER_INSCRIPTION = "ajouteInscription";
+    private static final String AFFICHER_INSCRIPTION = "afficherInscription";
     private static final String ENVOI_INSCRIPTION = "envoiInscription";
-    private static final String RETOUR_ACCUEIL = "Retour";
     private static final String AFFICHER_ACTIVITES = "activities";
     private static final String DECONNEXION = "deconnexion";
     private static final String CONNEXION = "seConnecter";
+    private int numLocation;
+    private int numSejour;
 
 
     @Resource(lookup = "java:jboss/exported/topic/DemandeInscriptionJmsTopic")
@@ -67,28 +66,26 @@ public class Controleur extends HttpServlet {
     public void TraiteRequete(ServletRequest request, ServletResponse response) throws ServletException, IOException {
         // On récupère l'action
         String actionName = request.getParameter(ACTION_TYPE);
-
         // Si on veut afficher l'ensemble des demandes d'inscription
-        if (CONNEXION.equals(actionName) || RETOUR_ACCUEIL.equals(actionName)) {
-
+        if (CONNEXION.equals(actionName)) {
+            // TODO : vérifier que n°séjour + n°emplacement existent et bons
+            // TODO : set variables numSejour et numLocation
             request.getRequestDispatcher("/accueil.jsp").forward(request, response);
-
         }
-         else if (AFFICHER_ACTIVITES.equals(actionName)) {
+        if (AFFICHER_ACTIVITES.equals(actionName)) {
             this.getServletContext().getRequestDispatcher("/activites.jsp").include(request, response);
         }
-        else if (AJOUTER_INSCRIPTION.equals(actionName)) {
+        if (AFFICHER_INSCRIPTION.equals(actionName)) {
             request.getRequestDispatcher("/inscription.jsp").forward(request, response);
         }
-        else if (ENVOI_INSCRIPTION.equals(actionName))
+        if (ENVOI_INSCRIPTION.equals(actionName))
         {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             response.setContentType("text/html;charset=UTF-8");
-            // On récupère les informations sisies
-            String nom = request.getParameter("nom");
-            String prenom = request.getParameter("prenom");
+            // TODO: On récupère les informations saisies
+            //String nom = request.getParameter("nom");
 
-            if ((nom != null) && (prenom != null)) {
+            //if ((nom != null) && (prenom != null)) {
                 try {
                     // On récupère la valeur des autres champs saisis par
                     // l'utilisateur
@@ -101,18 +98,10 @@ public class Controleur extends HttpServlet {
                     initDate= formatter.parse(parsedDate);
                     Date uneDate = new Date(initDate.getTime());*/
 
-                    String adresse = request.getParameter("adresse");
-                    String cpostal = request.getParameter("cpostal");
-                    String ville = request.getParameter("ville");
 
                     // On crée une demande d'inscription avec ces valeurs
                     Inscription unedemande = new Inscription();
-                    unedemande.setNomcandidat(nom);
-                    unedemande.setPrenomcandidat(prenom);
-                    //unedemande.setDatenaissance(uneDate);
-                    unedemande.setAdresse(adresse);
-                    unedemande.setCpostal(cpostal);
-                    unedemande.setVille(ville);
+                    // TODO set la demande
 
                     // On envoie cette demande d'inscription dans le topic
                     boolean ok = envoi(unedemande);
@@ -129,7 +118,10 @@ public class Controleur extends HttpServlet {
                     request.setAttribute("MesErreurs", e.getMessage());
                     request.getRequestDispatcher("PostMessage.jsp").forward(request, response);
                 }
-            }
+            //}
+        }
+        if (DECONNEXION.equals(actionName)) {
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
         }
     }
 
